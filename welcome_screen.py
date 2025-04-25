@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("UACS Diaries - Loading")
 
 # Load background image
-background = pygame.image.load("resourses\background_loadingScreen.png")
+background = pygame.image.load("resourses\background_loadingScreen.jpg")
 background = pygame.transform.scale(background, (width, height))  # Make sure it fits screen
 
 
@@ -46,7 +46,7 @@ while loading:
             pygame.quit()
             sys.exit()
 
-    screen.fill(WHITE)
+    screen.blit(background, (0, 0))
 
     # Update floating
     diamond_float += diamond_direction * 0.5
@@ -92,7 +92,7 @@ while waiting_for_key:
         if event.type == pygame.KEYDOWN:
             waiting_for_key = False
 
-    screen.fill(WHITE)
+    screen.blit(background, (0, 0))
 
     # Redraw diamond (still, no floating)
     diamond_x = width // 2
