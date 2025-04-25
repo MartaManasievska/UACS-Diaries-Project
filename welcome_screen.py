@@ -1,9 +1,15 @@
 import pygame
 import sys
-import time
+from selection_screen import run_selection_screen
+import os
 
 # Initialize Pygame
 pygame.init()
+
+# Load diamond image
+diamond_img = pygame.image.load(os.path.join('images', 'diamond.png'))
+diamond_img = pygame.transform.scale(diamond_img, (110, 140))  # adjust size if needed
+
 
 
 
@@ -13,7 +19,7 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("UACS Diaries - Loading")
 
 # Load background image
-background = pygame.image.load("resourses\background_loadingScreen.jpg")
+background = pygame.image.load(os.path.join('images', 'background_loadingScreen.jpg'))
 background = pygame.transform.scale(background, (width, height))  # Make sure it fits screen
 
 
@@ -34,7 +40,7 @@ progress = 0
 loading_speed = 1
 
 # Diamond variables (simple up and down floating)
-diamond_y_base = height // 2 - 140
+diamond_y_base = height // 2 - 200
 diamond_float = 0
 diamond_direction = 1  # 1 = moving down, -1 = moving up
 
@@ -54,15 +60,10 @@ while loading:
         diamond_direction *= -1
 
     # Draw simple diamond shape
-    diamond_x = width // 2
-    diamond_y = diamond_y_base + diamond_float
-    diamond_points = [
-        (diamond_x, diamond_y - 40),
-        (diamond_x + 30, diamond_y),
-        (diamond_x, diamond_y + 40),
-        (diamond_x - 30, diamond_y)
-    ]
-    pygame.draw.polygon(screen, PASTEL_PINK, diamond_points)
+    diamond_x = width // 2 - diamond_img.get_width() // 2
+    diamond_y = diamond_y_base + diamond_float  # or just diamond_y_base when it's not floating
+    screen.blit(diamond_img, (diamond_x, diamond_y))
+
 
     # Loading text
     text = font.render("Loading...", True, BLACK)
@@ -94,16 +95,18 @@ while waiting_for_key:
 
     screen.blit(background, (0, 0))
 
-    # Redraw diamond (still, no floating)
-    diamond_x = width // 2
-    diamond_y = diamond_y_base
-    diamond_points = [
-        (diamond_x, diamond_y - 40),
-        (diamond_x + 30, diamond_y),
-        (diamond_x, diamond_y + 40),
-        (diamond_x - 30, diamond_y)
-    ]
-    pygame.draw.polygon(screen, PASTEL_PINK, diamond_points)
+ 
+
+
+   # Floating effect
+    diamond_float += diamond_direction * 0.5
+    if diamond_float > 10 or diamond_float < -10:
+        diamond_direction *= -1
+
+    diamond_x = width // 2 - diamond_img.get_width() // 2
+    diamond_y = diamond_y_base + diamond_float
+    screen.blit(diamond_img, (diamond_x, diamond_y))
+
 
     # Redraw "Press any key" text
     continue_text = font.render("Press any key to continue...", True, BLACK)
@@ -112,5 +115,29 @@ while waiting_for_key:
     pygame.display.update()
     clock.tick(60)
 
-# After pressing key
-pygame.quit()
+# FLIP ROTATION EFFECT
+original = screen.copy()
+
+for angle in range(0, 361, 10):
+    rotated = pygame.transform.rotozoom(original, angle, 1)
+    rect = rotated.get_rect(center=(width // 2, height // 2))
+    screen.fill((0, 0, 0))
+    screen.blit(rotated, rect.topleft)
+    pygame.display.update()
+    pygame.time.delay(10)
+
+# FADE TO BLACK EFFECT
+fade_surface = pygame.Surface((width, height))
+fade_surface.fill((0, 0, 0))
+
+for alpha in range(0, 256, 10):
+    fade_surface.set_alpha(alpha)
+    screen.blit(fade_surface, (0, 0))
+    pygame.display.update()
+    pygame.time.delay(20)
+
+# Move to the next screen
+run_selection_screen()
+
+  
+
