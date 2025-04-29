@@ -14,7 +14,7 @@ diamond_img = pygame.transform.scale(diamond_img, (110, 140))  # adjust size if 
 
 
 # Set up display
-width, height = 800, 600
+width, height = 1000, 700
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("UACS Diaries - Loading")
 
@@ -70,10 +70,10 @@ while loading:
     screen.blit(text, (width//2 - text.get_width()//2, height//2 - 50))
 
     # Draw loading bar background
-    pygame.draw.rect(screen, BLACK, (150, height//2 + 20, 500, 40), 2)
+    pygame.draw.rect(screen, BLACK, (230, height//2 + 20, 500, 40), 2)
 
     # Draw loading bar progress (in pastel pink)
-    pygame.draw.rect(screen, PASTEL_PINK, (152, height//2 + 22, 5 * progress - 4, 36))
+    pygame.draw.rect(screen, PASTEL_PINK, (232, height//2 + 22, 5 * progress - 4, 36))
 
     # Update progress
     progress += loading_speed

@@ -1,16 +1,14 @@
 import pygame
 import sys
 import os
-from choose_character_screen import character_selection
+from choose_character_screen import run_character_selection  # Make sure this matches the function name!
 
 # Initialize Pygame
 pygame.init()
 
 def run_selection_screen():
-    
-
     # Set up display
-    width, height = 800, 600
+    width, height = 1000, 700
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("UACS Diaries - Selection Screen")
 
@@ -35,10 +33,7 @@ def run_selection_screen():
     exit_btn_rect = pygame.Rect(width//2 - button_width//2, 350, button_width, button_height)
 
     def draw_button(rect, text, mouse_pos):
-        if rect.collidepoint(mouse_pos):
-            color = PASTEL_PINK_HOVER
-        else:
-            color = PASTEL_PINK
+        color = PASTEL_PINK_HOVER if rect.collidepoint(mouse_pos) else PASTEL_PINK
         pygame.draw.rect(screen, color, rect, border_radius=15)
         pygame.draw.rect(screen, BLACK, rect, 2, border_radius=15)
         label = font_button.render(text, True, BLACK)
@@ -56,7 +51,7 @@ def run_selection_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if start_btn_rect.collidepoint(event.pos):
                     print("Start New Game clicked")
-                    character_selection()
+                    run_character_selection()  # Call the character selection function
                 if exit_btn_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
@@ -73,5 +68,6 @@ def run_selection_screen():
 
         pygame.display.update()
 
-        if __name__ == "__main__":
-         run_selection_screen()
+# Only run this screen when executing the script directly
+if __name__ == "__main__":
+    run_selection_screen()
