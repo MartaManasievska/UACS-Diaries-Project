@@ -1,6 +1,7 @@
 import pygame
 import sys
 import os
+from choose_character_screen import character_selection
 
 # Initialize Pygame
 pygame.init()
@@ -55,7 +56,7 @@ def run_selection_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if start_btn_rect.collidepoint(event.pos):
                     print("Start New Game clicked")
-                    # TODO: Move to the next scene
+                    character_selection()
                 if exit_btn_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
