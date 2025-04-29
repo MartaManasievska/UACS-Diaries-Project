@@ -139,7 +139,7 @@ while running:
                             elif food_option == 2:
                                 choice_text = "Well, that takes care of breakfast... or lack of it, haha."
 
-                            dialogue_lines.insert(3, choice_text)  # Insert reaction line at position 3
+                            dialogue_lines.insert(3, choice_text)  
                             current_line = 3  # Show it next
                             typing_index = 0
                             frame_count = 0
