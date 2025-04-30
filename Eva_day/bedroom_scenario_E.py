@@ -8,24 +8,26 @@ pygame.init()
 # Screen setup
 WIDTH, HEIGHT = 1000, 700
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tina's Bedroom")
+pygame.display.set_caption("Eva's Bedroom")
 clock = pygame.time.Clock()
 
 # Load background and character
-background = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'bedroom_TS.png')).convert()
+background = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'bedroom_E.png')).convert()
 background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
 
-tina_image = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'character_bedroom_TS.png')).convert_alpha()
-tina_image = pygame.transform.smoothscale(tina_image, (400, 600))
-tina_position = (WIDTH // 2 - 150, HEIGHT - 600)
 
-icon_img = pygame.image.load(os.path.join('images', 'Tina_circle_border.png')).convert_alpha()
+tina_image = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'character_bedroom_E.png')).convert_alpha()
+tina_image = pygame.transform.smoothscale(tina_image, (400, 600))
+tina_position = (WIDTH // 2 - 20, HEIGHT - 600)
+
+icon_img = pygame.image.load(os.path.join('images', 'Eva_circle_border.png')).convert_alpha()
 icon_img = pygame.transform.smoothscale(icon_img, (80, 80))
 icon_position = (WIDTH - 100, HEIGHT - 120)
 
 # Font
-font_path = os.path.join('Tina_day', 'NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
+font_path = os.path.join('NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
 font_dialogue = pygame.font.Font(font_path, 28)
+
 
 # Dialogue and Choices
 dialogue_lines = [
@@ -198,3 +200,5 @@ while running:
 
 pygame.quit()
 sys.exit()
+
+
