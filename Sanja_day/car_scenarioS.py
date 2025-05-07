@@ -1,88 +1,42 @@
 import pygame
 import sys
 import os
+import json
 
 pygame.init()
 
-#Screen Setup
-
+# Screen Setup
 width, height = 1000, 700
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Car Ride - Eva & Sanja")
 clock = pygame.time.Clock()
 
+# Load background
 background = pygame.image.load(os.path.join('Sanja_day', 'images_sanja', 'car_scenario_S.png')).convert()
-background = pygame.transform.smoothscale(background, (width,height))
+background = pygame.transform.smoothscale(background, (width, height))
 
-#Icons
+# Load icons
 sanja_icon = pygame.image.load(os.path.join('images', 'Sanja_circle_border.png')).convert_alpha()
 sanja_icon = pygame.transform.smoothscale(sanja_icon, (70, 70))
-
 eva_icon = pygame.image.load(os.path.join('images', 'Eva_circle_border.png')).convert_alpha()
 eva_icon = pygame.transform.smoothscale(eva_icon, (70, 70))
 
-
-# Font
+# Fonts
 font_path = os.path.join('NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
 font_dialogue = pygame.font.Font(font_path, 26)
 font_name = pygame.font.Font(font_path, 26)
 font_narration = pygame.font.SysFont("arial", 22, bold=False, italic=True)
 
+# Load dialogue from external JSON file
+with open(os.path.join('Sanja_day', 'dialog_S&E.json'), 'r', encoding='utf-8') as file:
 
-#Dialogue with the speaker tuples (Sanja, Eva)
-dialogue_lines = [
-    ("Eva", "There she is. Miss 'I’ll be outside in 2 minutes' — it’s been ten."),
-    ("Sanja", "Okay but like, I was being productive. I was panicking and rewriting my intro slide."),
-    ("Eva", "Productive panic. My favorite academic genre."),
-    ("Eva", "Be real — how much of your part did you actually finish?"),
-    ("Sanja", "Uh...."),
-    ("narration", "(They turn onto the main road toward campus. Streetlights flicker on. The glow of Srekja is just a few blocks away.)"),
-    ("Eva", "Okay, so we’re walking in, pretending we’re calm, and then forcing everyone to stay focused for at least one hour."),
-    ("Sanja ", "One whole hour? That’s ambitious."),
-    ("Eva", "...Fine. Thirty minutes and one coffee refill. Let’s go."),
-    ("Sanja", "You know Tina’s gonna derail the whole thing with some ‘what if we add this last-minute’ idea."),
-    ("Eva", "Oh absolutely. And Anja’s gonna be calm about it while silently fixing all our slides."),
-    ("Sanja", "Marta’s probably already rewriting the conclusion again..."),    
-    ("Eva", "Which I will pretend to love because I am a supportive teammate."),
-    ("narration", "What to say next?")
+    data = json.load(file)
 
-]
+dialogue_lines = data["dialogue_lines"]
+choice_sets = data["choice_sets"]
+response_dialogue = data["response_dialogue"]
 
-choice_sets = [
-    ["80%", "Be honest", "admit you don't like what you wrote"],
-    ["I love how chaotic we are. It kinda works.","We’re so doomed and it’s beautiful.","Wait… did anyone bring the printed outline for the professor?"]
-
-
-]
-
-response_dialogue = [
-    [("Sanja", "Like... 80%. Just needs a little polishing."),
-     ("Eva", "That’s more than I expected. We might actually pull this off."),
-     ("Sanja", "Don’t jinx it.")],
-
-     [("Sanja", "Honestly? I’m praying to the Google Slides gods during the ride."),
-     ("Eva", "Bold of you to assume Srekja Wi-Fi will let us upload anything."),
-     ("Sanja", "Okay now I’m actually scared.")],
-     
-     [("Sanja", "I finished it but I already hate everything I wrote."),
-     ("Eva", "That’s the spirit of academia right there."),
-     ("Sanja", "Burnout with a sprinkle of impostor syndrome.")],
-
-     [("Sanja", "I love how chaotic we are. It kinda works."),
-      ("Eva", "It's the academic version of jazz — messy but full of feeling."),
-      ("Sanja", "Let’s hope the professor agrees.")],
-
-    [("Sanja", "We’re so doomed and it’s beautiful."),
-     ("Eva", "Like a tragic group project opera."),
-     ("Sanja", "Cue dramatic music as we walk into Srekja.")],
-
-     [("Sanja", "Wait… did anyone bring the printed outline for the professor?"),
-      ("Eva", "...Was that not *your* job?"),
-      ("Sanja", "OH NO—"),
-      ("Eva", "Kidding. Tina printed five. Queen of preparation.")]
-]
-
-# State
+# State variables
 current_line = 0
 displayed_text = ""
 typing_index = 0
@@ -94,6 +48,11 @@ choice_rects = []
 choice_stage = 0
 fade_out = False
 waiting_for_fade = False
+
+# Fade surface
+fade_surface = pygame.Surface((width, height))
+fade_surface.fill((0, 0, 0))
+fade_alpha = 0
 
 # Draw dialogue box
 def draw_dialogue_box(speaker):
@@ -114,7 +73,7 @@ def draw_dialogue_box(speaker):
             line = word + " "
     lines.append(line)
 
-    text_x = box_rect.x + 20 if speaker == "Eva" else box_rect.x + 90
+    text_x = box_rect.x + 20 if speaker == "Eva" else box_rect.x + 10
     for i, l in enumerate(lines):
         font = font_narration if speaker == "narration" else font_dialogue
         color = (200, 200, 200) if speaker == "narration" else (255, 255, 255)
@@ -123,7 +82,7 @@ def draw_dialogue_box(speaker):
 
     if speaker not in ["narration"]:
         name_text = font_name.render(speaker, True, (255, 255, 255))
-        name_x = box_rect.x + 20 if speaker == "Eva" else box_rect.right - font_name.size(speaker)[0] - 90
+        name_x = box_rect.x + 90 if speaker == "Eva" else box_rect.right - font_name.size(speaker)[0] - 90
         name_y = box_rect.y - 30
         if speaker == "Eva":
             screen.blit(eva_icon, (box_rect.x + 10, icon_y))
@@ -150,10 +109,6 @@ def draw_choices():
 
 # Main loop
 running = True
-fade_surface = pygame.Surface((width, height))
-fade_surface.fill((0, 0, 0))
-fade_alpha = 0
-
 while running:
     screen.blit(background, (0, 0))
 
@@ -194,7 +149,7 @@ while running:
             elif text_complete:
                 if current_line == 4 and choice_stage == 0:
                     show_choices = True
-                    text_complete = False  # prevent advancing
+                    text_complete = False
                     typing_index = 0
                     frame_count = 0
                     displayed_text = ""
@@ -210,8 +165,6 @@ while running:
                     elif waiting_for_fade:
                         fade_out = True
 
-
-
     if not text_complete and current_line < len(dialogue_lines):
         frame_count += 1
         if frame_count % typing_speed == 0:
@@ -225,5 +178,3 @@ while running:
 
 pygame.quit()
 sys.exit()
-
-
