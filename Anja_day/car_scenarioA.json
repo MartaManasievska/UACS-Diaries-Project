@@ -1,0 +1,137 @@
+{
+  "dialogue_lines": [
+    [
+      "Anja",
+      "I can't believe we're presenting today. My stomach is already doing flips."
+    ],
+    [
+      "Marta",
+      "You've got this. Besides, we rehearsed like five times."
+    ],
+    [
+      "Anja",
+      "Yeah, but what if the projector fails? Or I blank out?"
+    ],
+    [
+      "Marta",
+      "Then I'll jump in and distract them with my charm. Obviously."
+    ],
+    [
+      "Anja",
+      "Oh my hahah"
+    ],
+    [
+      "Marta",
+      "Relax. Once we get coffee, your whole vibe will reset."
+    ]
+  ],
+  "choice_sets": [
+    [
+      "Ask Anja what coffee she's getting",
+      "Double check your flash drive",
+      "Say you can't wait to be done for the day."
+    ],
+    [
+      "Text Sanja and Eva to save you a seat",
+      "Take a deep breath and focus",
+      "Start a gossip session to distract."
+    ],
+    [
+      "Say you’re feeling confident now",
+      "Ask to rehearse one more time",
+      "Stay silent and just smile"
+    ]
+  ],
+  "response_dialogue": [
+    [
+      [
+        "Marta",
+        "Wait—what are you ordering? I need to copy a good one."
+      ],
+      [
+        "Anja",
+        "Caramel macchiato. Don’t copy me, make your own personality."
+      ]
+    ],
+    [
+      [
+        "Anja",
+        "Hold up—let me check if I even brought my USB..."
+      ],
+      [
+        "Marta",
+        "Girl if you forgot it again I swear—"
+      ]
+    ],
+    [
+      [
+        "Marta",
+        "I can't wait to be done for the day it's exhausting."
+      ],
+      [
+        "Anja",
+        "No seriously, after this I’m disappearing until Monday."
+      ]
+    ],
+    [
+      [
+        "Marta",
+        "Sanja said they will be a little late so Tina will save for all of us haha. Classic"
+      ],
+      [
+        "Anja",
+        "Tina's the real MVP honestly."
+      ]
+    ],
+    [
+      [
+        "Anja",
+        "In... two... one... okay. I’m grounded again."
+      ],
+      [
+        "Marta",
+        "See? All you needed was a tiny dramatic countdown."
+      ]
+    ],
+    [
+      [
+        "Anja",
+        "Oh by the way I heard that you know who started seeing..."
+      ],
+      [
+        "Marta",
+        "YOU ARE NOT CHANGING THE TOPIC NOW"
+      ]
+    ],
+    [
+      [
+        "Anja",
+        "Okay yeah... I'm actually feeling ready now."
+      ],
+      [
+        "Marta",
+        "That's the spirit."
+      ]
+    ],
+    [
+      [
+        "Anja",
+        "Alright. Let’s do a speed run. No stutters."
+      ],
+      [
+        "Marta",
+        "Speed and power. Like Lightning McQueen."
+      ]
+    ],
+    [
+      [
+        "Marta",
+        "Let’s just vibe. We got this."
+      ],
+      [
+        "Anja",
+        "Let’s gooo."
+      ]
+    ]
+  ]
+}

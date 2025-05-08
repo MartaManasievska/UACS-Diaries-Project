@@ -3,7 +3,7 @@ import sys
 import os
 import json
 
-def run_car_scenario_M():
+def run_car_scenario_A():
     pygame.init()
 
     width, height = 1000, 700

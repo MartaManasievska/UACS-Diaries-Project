@@ -3,27 +3,28 @@ import sys
 import os
 import json
 
-def run_car_scenario_M():
+def run_car_scenarioE():
     pygame.init()
 
     width, height = 1000, 700
     screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Car Ride - Marta & Anja")
+    pygame.display.set_caption("Car Ride - Eva & Sanja")
     clock = pygame.time.Clock()
 
-    background = pygame.image.load(os.path.join('Marta_day', 'images_marta', 'car_scenario.png')).convert()
+    background = pygame.image.load(os.path.join('Sanja_day', 'images_sanja', 'car_scenario_S.png')).convert()
     background = pygame.transform.smoothscale(background, (width, height))
 
-    marta_icon = pygame.image.load(os.path.join('images', 'Marta_circle_border.png')).convert_alpha()
-    marta_icon = pygame.transform.smoothscale(marta_icon, (70, 70))
-    anja_icon = pygame.image.load(os.path.join('images', 'Anja_circle_border.png')).convert_alpha()
-    anja_icon = pygame.transform.smoothscale(anja_icon, (70, 70))
+    sanja_icon = pygame.image.load(os.path.join('images', 'Sanja_circle_border.png')).convert_alpha()
+    sanja_icon = pygame.transform.smoothscale(sanja_icon, (70, 70))
+    eva_icon = pygame.image.load(os.path.join('images', 'Eva_circle_border.png')).convert_alpha()
+    eva_icon = pygame.transform.smoothscale(eva_icon, (70, 70))
 
     font_path = os.path.join('NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
     font_dialogue = pygame.font.Font(font_path, 26)
     font_name = pygame.font.Font(font_path, 26)
+    font_narration = pygame.font.SysFont("arial", 22, bold=False, italic=True)
 
-    with open(os.path.join('Marta_day','car_scenarioM.json'), 'r', encoding='utf-8') as file:
+    with open(os.path.join('Sanja_day', 'dialog_S&E.json'), 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     dialogue_lines = data["dialogue_lines"]
@@ -64,22 +65,22 @@ def run_car_scenario_M():
                 line = word + " "
         lines.append(line)
 
-        text_x = box_rect.x + 90 if speaker == "Marta" else box_rect.x + 20
+        text_x = box_rect.x + 20 if speaker == "Eva" else box_rect.x + 10
         for i, l in enumerate(lines):
-            rendered = font_dialogue.render(l, True, (255, 255, 255))
+            font = font_narration if speaker == "narration" else font_dialogue
+            color = (200, 200, 200) if speaker == "narration" else (255, 255, 255)
+            rendered = font.render(l, True, color)
             screen.blit(rendered, (text_x, box_rect.y + 40 + i * 30))
 
-        name_text = font_name.render(speaker, True, (255, 255, 255))
-        name_xM = box_rect.x + 90
-        name_xA = box_rect.right - font_name.size(speaker)[0] - 90
-        name_y = box_rect.y - 30
-
-        if speaker == "Marta":
-            screen.blit(marta_icon, (box_rect.x + 10, icon_y))
-            screen.blit(name_text, (name_xM, name_y))
-        else:
-            screen.blit(anja_icon, (box_rect.right - 80, icon_y))
-            screen.blit(name_text, (name_xA, name_y))
+        if speaker not in ["narration"]:
+            name_text = font_name.render(speaker, True, (255, 255, 255))
+            name_x = box_rect.x + 90 if speaker == "Eva" else box_rect.right - font_name.size(speaker)[0] - 90
+            name_y = box_rect.y - 30
+            if speaker == "Eva":
+                screen.blit(eva_icon, (box_rect.x + 10, icon_y))
+            else:
+                screen.blit(sanja_icon, (box_rect.right - 80, icon_y))
+            screen.blit(name_text, (name_x, name_y))
 
     def draw_choices():
         nonlocal choice_rects
@@ -90,13 +91,10 @@ def run_car_scenario_M():
         for i, choice in enumerate(choice_sets[choice_stage]):
             rect = pygame.Rect(width // 2 - 250, start_y + i * 60, 500, 50)
             choice_rects.append(rect)
-
             hover = rect.collidepoint(mouse_pos)
             color = (255, 105, 180) if hover else (255, 182, 193)
-
             pygame.draw.rect(screen, color, rect, border_radius=8)
             pygame.draw.rect(screen, (255, 255, 255), rect, 2, border_radius=8)
-
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
 

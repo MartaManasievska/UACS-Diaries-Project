@@ -11,8 +11,6 @@ diamond_img = pygame.image.load(os.path.join('images', 'diamond.png'))
 diamond_img = pygame.transform.scale(diamond_img, (110, 140))  # adjust size if needed
 
 
-
-
 # Set up display
 width, height = 1000, 700
 screen = pygame.display.set_mode((width, height))
