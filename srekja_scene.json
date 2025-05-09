@@ -1,0 +1,19 @@
+{
+  "dialogue_lines": [["Marta", "What do you want to do next?"]],
+  "choice_sets": {
+    "Tina": ["Get coffee", "Walk away", "Ask Sanja"],
+    "Sanja": ["Ask Marta", "Go inside", "Order lemonade"]
+  },
+  "response_dialogue": {
+    "Tina": [
+      [["Eva", "Coffee sounds good!"]],
+      [["Anja", "Let’s walk a bit."]],
+      [["Sanja", "Sure, what’s up?"]]
+    ],
+    "Sanja": [
+      [["Marta", "Oh, you're curious today!"]],
+      [["Eva", "Ooh it’s too hot for outside."]],
+      [["Anja", "You're always ordering that!"]]
+    ]
+  }
+}

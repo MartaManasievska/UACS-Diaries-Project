@@ -89,6 +89,7 @@ def run_character_selection():
         if selected_character:
             pygame.draw.rect(screen, WHITE, confirm_rect, border_radius=8)
             confirm_txt = font_button.render("CONFIRM", True, BLACK)
+            
         else:
             pygame.draw.rect(screen, GRAY, confirm_rect, border_radius=8)
             confirm_txt = font_button.render("CONFIRM", True, (100, 100, 100))
@@ -119,7 +120,11 @@ def run_character_selection():
                         handle_click(name)
 
                 if confirm_rect.collidepoint(mx, my) and selected_character:
+                    # Save selected character
+                    with open("player_character.json", "w") as f:
+                        json.dump({"player": selected_character}, f)
                     fade_out = True
+
 
         if fade_out:
             fade_alpha += 5
