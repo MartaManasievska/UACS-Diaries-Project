@@ -1,6 +1,7 @@
 import pygame
 import sys
 import os
+import json
 
 def run_character_selection():
     pygame.init()
@@ -150,4 +151,4 @@ def run_character_selection():
         bedroom_scenario_M()
     elif selected_character == "Eva":
         from Eva_day.bedroom_scenario_E import bedroom_scenario_E
-    bedroom_scenario_E()
+        bedroom_scenario_E()
