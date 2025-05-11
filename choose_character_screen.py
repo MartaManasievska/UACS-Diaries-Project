@@ -90,7 +90,6 @@ def run_character_selection():
         if selected_character:
             pygame.draw.rect(screen, WHITE, confirm_rect, border_radius=8)
             confirm_txt = font_button.render("CONFIRM", True, BLACK)
-            
         else:
             pygame.draw.rect(screen, GRAY, confirm_rect, border_radius=8)
             confirm_txt = font_button.render("CONFIRM", True, (100, 100, 100))
@@ -126,7 +125,6 @@ def run_character_selection():
                         json.dump({"player": selected_character}, f)
                     fade_out = True
 
-
         if fade_out:
             fade_alpha += 5
             if fade_alpha >= 255:
@@ -134,21 +132,22 @@ def run_character_selection():
 
         clock.tick(60)
 
-    pygame.quit()
-   
-    # Trigger the bedroom scene directly
+    # ✅ Do NOT quit pygame here – we’re transitioning to a new scene
+
     if selected_character == "Tina":
+        print("Launching Tina bedroom...")
         from Tina_day.bedroom_scenario_TS import bedroom_scenario_TS
         bedroom_scenario_TS()
     elif selected_character == "Anja":
+        print("Launching Anja bedroom...")
         from Anja_day.bedroom_scenario_A import bedroom_scenario_A
         bedroom_scenario_A()
     elif selected_character == "Sanja":
+        print("Launching Sanja bedroom...")
         from Sanja_day.bedroom_scenario_S import bedroom_scenario_S
         bedroom_scenario_S()
-    elif selected_character == "Marta":
-        from Marta_day.bedroom_scenario_M import bedroom_scenario_M
-        bedroom_scenario_M()
-    elif selected_character == "Eva":
-        from Eva_day.bedroom_scenario_E import bedroom_scenario_E
-        bedroom_scenario_E()
+
+
+    # ✅ Only quit AFTER the bedroom scene finishes
+    pygame.quit()
+    sys.exit()
