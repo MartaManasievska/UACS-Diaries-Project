@@ -33,16 +33,15 @@ def bedroom_scenario_TS():
 
     # Dialogue and Choices
     dialogue_lines = [
-        "Ugh... another Monday morning. Do I really have to get up?",
-        "Maybe today's the day I'll actually be productive...",
-        "Should I eat pancakes, make a healthy smoothie, or skip breakfast and play games instead?",
+        "Ugh... another Monday morning. Do I really have to get up? I could have some pancakes to make this day more durable, but gaming sounds way more fun.", 
+        "Should I eat pancakes, go on a morning walk, or skip breakfast and play games instead?",
         "Now what should I do next?",
         "Should I text my boyfriend, do some chores, or go out with friends?",
         "Should I plan my outfit ahead of time, choose last minute, or just grab the comfiest thing I see?" 
     ]
 
     choices_sets = [
-        ["Eat pancakes", "Make a healthy smoothie", "Skip breakfast and play games"],
+        ["Eat pancakes", "Go on a morning walk", "Skip breakfast and play games"],
         ["Text my boyfriend", "Do some chores", "Go out with friends"],
         ["Plan ahead", "Choose last minute", "Grab comfiest thing"] 
     ]
@@ -169,7 +168,7 @@ def bedroom_scenario_TS():
                                 elif selected_outfit == 1:
                                     choice_text = "Tina shrugs and decides she'll pick something last minute."
                                 elif selected_outfit == 2:
-                                    choice_text = "Tina grabs the first comfy hoodie she can find and smiles."
+                                    choice_text = "Tina grabs the first comfy hoodie she can find and calls it a day."
                                 
                                 dialogue_lines.insert(current_line, choice_text)
                                 current_line = len(dialogue_lines) - 1

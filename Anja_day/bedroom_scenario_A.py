@@ -182,3 +182,4 @@ def bedroom_scenario_A():
 
     # Call car ride scene
     run_car_scenario_A()
+    
