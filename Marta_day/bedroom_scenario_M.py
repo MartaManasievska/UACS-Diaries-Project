@@ -28,18 +28,15 @@ def bedroom_scenario_M():
     font_dialogue = pygame.font.Font(font_path, 28)
 
     dialogue_lines = [
-        "Ugh... another Monday morning. Do I really have to get up?",
-        "Maybe today's the day I'll actually be productive...",
-        "Should I eat pancakes, make a healthy smoothie, or skip breakfast and play games instead?",
-        "Now what should I do next?",
-        "Should I text my boyfriend, do some chores, or go out with friends?",
-        "Should I plan my outfit ahead of time, choose last minute, or just grab the comfiest thing I see?" 
+        "Ughh,my bed is soo warm. Should I snooze and sleep longer, walk my dog, or have some tea?",
+        "Breakfast or no breakfast? Maybe I can grab something while walking the dog. Should I have breakfast at home, grab food on the walk, or skip breakfast?",
+        "Alright, now how should I get to uni? Should I drive to university, take the bus, or carpool with colleagues?" 
     ]
 
     choices_sets = [
-        ["Eat pancakes", "Make a healthy smoothie", "Skip breakfast and play games"],
-        ["Text my boyfriend", "Do some chores", "Go out with friends"],
-        ["Plan ahead", "Choose last minute", "Grab comfiest thing"] 
+        ["Snooze and sleep", "Walk my dog", "Have some tea"],
+        ["Breakfast at home", "Grab food outside", "Skip breakfast"],
+        ["Drive to Uni", "Take the bus", "carpool with colleagues"] 
     ]
 
     current_line = 0
@@ -135,11 +132,11 @@ def bedroom_scenario_M():
                                 current_choice_set = 1
                                 food_option = idx
                                 if food_option == 0:
-                                    choice_text = "Now that was a great breakfast!"
+                                    choice_text = "A little more sleep won’t hurt…"
                                 elif food_option == 1:
-                                    choice_text = "That made me feel very refreshed."
+                                    choice_text = "Fresh air will be good for both of us!"
                                 elif food_option == 2:
-                                    choice_text = "Well, that takes care of breakfast... or lack of it, haha."
+                                    choice_text = "A warm cup of tea sounds perfect to start the day calmly."
                                 dialogue_lines.insert(3, choice_text)
                                 current_line = 3
 
@@ -149,11 +146,11 @@ def bedroom_scenario_M():
                             elif current_choice_set == 2:
                                 selected_outfit = idx
                                 if selected_outfit == 0:
-                                    choice_text = "Marta lays out her cutest outfit and smiles at the mirror."
+                                    choice_text = "Eating at home is healthier, let's do that."
                                 elif selected_outfit == 1:
-                                    choice_text = "Marta shrugs and grabs something quick but decent."
+                                    choice_text = "I’m in a rush — I’ll just grab something quick on the way."
                                 elif selected_outfit == 2:
-                                    choice_text = "She grabs a hoodie and jeans — comfort over everything."
+                                    choice_text = "Not really hungry right now. I’ll skip breakfast and maybe snack later."
                                 dialogue_lines.insert(current_line, choice_text)
                                 current_line = len(dialogue_lines) - 1
                                 waiting_for_fade = True
