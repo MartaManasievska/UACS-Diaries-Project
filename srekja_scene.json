@@ -1,0 +1,109 @@
+{
+  "dialogue_lines": [
+    ["Marta", "So... anyone actually slept last night?"],
+    ["Anja", "Does closing my eyes while spiraling count?"],
+    ["Eva", "If we're collapsing, we’re collapsing in sync."],
+    ["narration", "Everyone settles in with a drink. The café feels a little warmer."]
+  ],
+
+  "choice_sets": {
+    "Anja": [
+      "Admit you almost bailed this morning",
+      "Ask if Marta stayed up coding again",
+      "Joke about fainting mid-presentation"
+    ],
+    "Eva": [
+      "Ask if anyone printed backups",
+      "Complain about not sleeping at all",
+      "Say you almost slept in"
+    ],
+    "Tina": [
+      "Confidently say this will be easy",
+      "Admit you are nervous",
+      "Ask if the intro changed again"
+    ],
+    "Sanja": [
+      "Worry about forgetting your lines",
+      "Ask if everyone’s actually ready",
+      "Tease Tina about panicking"
+    ],
+    "Marta" : [
+       "Admit you were fixing bugs at 3am",
+        "Joke about deleting the whole project",
+        "Ask if anyone actually tested the final build"
+    ]
+  },
+
+  "response_dialogue": {
+    "Anja": [
+      [
+        ["Anja", "I barely made myself leave my apartment this morning."],
+        ["Marta", "I would've dragged you here if you bailed."],
+        ["Anja", "Honestly, I was halfway to texting an excuse."]
+      ],
+      [
+        ["Anja", "Marta did you stay up again fixing something"],
+        ["Sanja", "She totally did — again."],
+        ["Marta", "Not my fault I come up with things in the middle of the night"],
+        ["Eva", "She made me stay up helping her until 3am..."]
+      ],
+      [
+        ["Anja", "Dont be surprised if I faint mid presentation"],
+        ["Sanja", "I call dibs on catching you if you faint."],
+        ["Anja", "That’s the most chaotic kind of friendship."]
+      ]
+    ],
+    "Eva": [
+      [
+        ["Eva", "Did anyone print backups of the notes?"],
+        ["Tina", "Printed? Bold of you to assume I own paper."],
+        ["Eva", "I don’t know what I expected."]
+      ],
+      [
+        ["Eva",  "My head is killing me from sleeping so litte."],
+        ["Marta", "Hey at least the scene looks more organized now"]
+      ],
+      [
+        ["Eva", "I was so close to just falling back asleep."],
+        ["Sanja", "But you *did* show up. So proud of you."],
+        ["Eva", "Growth 🌱"]
+      ]
+    ],
+    "Tina": [
+      [
+        ["Tina", "I think this will be a piece of cake ngl."],
+        ["Anja", "Okay, who are you and what did you do with the real Tina?"],
+        ["Tina", "She’s still here, just caffeinated and delusional."],
+        ["Eva", "Honestly? I’m riding that confidence wave too."]
+      ],
+      [
+        ["Tina", "I feel sick."],
+        ["Tina", "I *hate* talking in front of people. Every time feels like a heart attack."],
+        ["Marta", "Honestly, you hide it really well."]
+      ],
+      [
+        ["Tina", "Did Anja rewrite the intro again?"],
+         ["Eva", "Yes. Again. She rewrote it at 1  a.m. in a panic spiral."],
+         ["Tina", "That’s it. I’m winging my part and calling it improvisational genius."]
+      ]
+    ],
+    "Marta": [
+  [
+    ["Sanja", "Let me guess — it was looping the wrong branch again?"],
+    ["Marta", "Yes. And I almost set my PC on fire."],
+    ["Anja", "You’re a hero. A sleep-deprived hero."]
+  ],
+  [
+    ["Marta", "What if I just delete the whole thing haha."],
+    ["Sanja", "Girl. No. Not after all that work."],
+    ["Marta", "I wouldn’t *really* delete it... just fantasize about it."],
+    ["Tina", "Honestly relatable."]
+  ],
+  [
+    ["Eva", "Define tested. Like, spiritually?"],
+    ["Marta", "Oh god. We’re gonna crash live, aren’t we?"],
+    ["Anja", "You fixed worse five minutes before a demo. We’re fine."]
+  ]
+]
+  }
+}

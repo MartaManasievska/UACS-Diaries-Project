@@ -1,7 +1,7 @@
 import pygame
 import sys
 import os
-from Anja_day import car_scenarioA  # Make sure this exists
+from Anja_day.car_scenarioA import run_car_scenario_A  # Make sure this exists
 
 def bedroom_scenario_A():
     pygame.init()
@@ -80,16 +80,23 @@ def bedroom_scenario_A():
     def draw_choices():
         nonlocal choice_rects
         choice_rects = []
-        choices = choices_sets[current_choice_set]
-        start_y = HEIGHT - 250
-        for i, choice in enumerate(choices):
-            rect = pygame.Rect(WIDTH // 2 - 250, start_y + i * 70, 500, 50)
+        start_y = HEIGHT - 300
+        mouse_pos = pygame.mouse.get_pos()
+
+        for i, choice in enumerate(choices_sets[current_choice_set]):
+            rect = pygame.Rect(WIDTH // 2 - 250, start_y + i * 60, 500, 50)
             choice_rects.append(rect)
-            pygame.draw.rect(screen, (255, 182, 193), rect, border_radius=8)
+
+            hover = rect.collidepoint(mouse_pos)
+            color = (255, 105, 180) if hover else (255, 182, 193)
+
+            pygame.draw.rect(screen, color, rect, border_radius=8)
             pygame.draw.rect(screen, (255, 255, 255), rect, 2, border_radius=8)
+
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-
+            (label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
+    
     running = True
     while running:
         screen.blit(background, (0, 0))
@@ -174,4 +181,4 @@ def bedroom_scenario_A():
         clock.tick(60)
 
     # Call car ride scene
-    car_scenarioA()
+    run_car_scenario_A()

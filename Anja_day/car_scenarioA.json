@@ -27,111 +27,43 @@
   ],
   "choice_sets": [
     [
-      "Ask Anja what coffee she's getting",
-      "Double check your flash drive",
-      "Say you can't wait to be done for the day."
+      "Ask Marta if she’s nervous too",
+      "Admit you barely slept",
+      "Say you’re thinking of bailing"
     ],
     [
-      "Text Sanja and Eva to save you a seat",
-      "Take a deep breath and focus",
-      "Start a gossip session to distract."
-    ],
-    [
-      "Say you’re feeling confident now",
-      "Ask to rehearse one more time",
-      "Stay silent and just smile"
+       "Ask if she thinks the professor likes them",
+       "Wonder out loud if anyone else is as nervous",
+       "Half-joke about faking a sudden illness"
     ]
   ],
   "response_dialogue": [
-    [
-      [
-        "Marta",
-        "Wait—what are you ordering? I need to copy a good one."
-      ],
-      [
-        "Anja",
-        "Caramel macchiato. Don’t copy me, make your own personality."
-      ]
+   [
+      ["Marta", "Me? Nervous? Never. Okay maybe a little."],
+      ["Anja", "Okay good, I’m not totally alone then."]
     ],
     [
-      [
-        "Anja",
-        "Hold up—let me check if I even brought my USB..."
-      ],
-      [
-        "Marta",
-        "Girl if you forgot it again I swear—"
-      ]
+      ["Marta", "You barely slept?! Girl. Coffee and adrenaline will save you now."],
+      ["Anja", "It's been a long night of overthinking."]
     ],
     [
-      [
-        "Marta",
-        "I can't wait to be done for the day it's exhausting."
-      ],
-      [
-        "Anja",
-        "No seriously, after this I’m disappearing until Monday."
-      ]
+      ["Marta", "Oh no you don’t. If I’m going down, you’re going with me."],
+      ["Anja", "You make that sound like a friendship pact from a heist movie."]
     ],
     [
-      [
-        "Marta",
-        "Sanja said they will be a little late so Tina will save for all of us haha. Classic"
-      ],
-      [
-        "Anja",
-        "Tina's the real MVP honestly."
-      ]
+      ["Marta", "Honestly? I think he likes us more than most of the class."],
+      ["Anja", "So you're saying we’re teacher’s pets?"],
+      ["Marta", "I’m saying we’re charming. Totally different thing."]
     ],
     [
-      [
-        "Anja",
-        "In... two... one... okay. I’m grounded again."
-      ],
-      [
-        "Marta",
-        "See? All you needed was a tiny dramatic countdown."
-      ]
+      ["Marta", "Most that I asked are as panicked as you maybe even more, so yes."],
+      ["Anja", "Okay, that makes me feel a bit better."],
+      ["Marta", "We’re all a bunch of stressed chickens."]
     ],
     [
-      [
-        "Anja",
-        "Oh by the way I heard that you know who started seeing..."
-      ],
-      [
-        "Marta",
-        "YOU ARE NOT CHANGING THE TOPIC NOW"
-      ]
-    ],
-    [
-      [
-        "Anja",
-        "Okay yeah... I'm actually feeling ready now."
-      ],
-      [
-        "Marta",
-        "That's the spirit."
-      ]
-    ],
-    [
-      [
-        "Anja",
-        "Alright. Let’s do a speed run. No stutters."
-      ],
-      [
-        "Marta",
-        "Speed and power. Like Lightning McQueen."
-      ]
-    ],
-    [
-      [
-        "Marta",
-        "Let’s just vibe. We got this."
-      ],
-      [
-        "Anja",
-        "Let’s gooo."
-      ]
+      ["Marta", "Fake a cough and I swear I’ll drag you in by your backpack."],
+      ["Anja", "So supportive."],
+      ["Marta", "That’s what friends are for 😇"]
     ]
   ]
 }
