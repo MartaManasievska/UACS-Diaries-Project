@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 import json
+from presentation_screen import run_presentation_scene
 
 # Load the selected character
 with open("player_character.json", "r") as f:
@@ -180,4 +181,4 @@ def run_srekja_scene():
         clock.tick(60)
 
     pygame.quit()
-    sys.exit()
+    run_presentation_scene()
