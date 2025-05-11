@@ -55,12 +55,16 @@
     ],
     [
       [
-        "Anja",
+        "Marta",
         "Hold up—let me check if I even brought my USB..."
       ],
       [
-        "Marta",
+        "Anja",
         "Girl if you forgot it again I swear—"
+      ],
+      [
+        "Marta",
+        "All good it's right here!"
       ]
     ],
     [
@@ -85,8 +89,12 @@
     ],
     [
       [
+        "Marta",
+        "In... two... one... okay. you should be a little grounded now ."
+      ],
+      [
         "Anja",
-        "In... two... one... okay. I’m grounded again."
+        "Okay.. that might have helped a little."
       ],
       [
         "Marta",
@@ -95,25 +103,29 @@
     ],
     [
       [
-        "Anja",
+        "Marta",
         "Oh by the way I heard that you know who started seeing..."
       ],
       [
-        "Marta",
+        "Anja",
         "YOU ARE NOT CHANGING THE TOPIC NOW"
       ]
     ],
     [
       [
-        "Anja",
-        "Okay yeah... I'm actually feeling ready now."
+        "Marta",
+        "I feel pretty confident right now."
       ],
       [
-        "Marta",
-        "That's the spirit."
+        "Anja",
+        "Well good for you I feel like I’m gonna be sick"
       ]
     ],
     [
+      [
+        "Marta",
+        "Let's do a practice presentation right now."
+      ],
       [
         "Anja",
         "Alright. Let’s do a speed run. No stutters."

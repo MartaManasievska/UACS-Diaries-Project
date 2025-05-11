@@ -57,86 +57,61 @@
   
     "choice_sets": [
 
-      [
-        "I love how chaotic we are. It kinda works.", 
-        "We’re so doomed and it’s beautiful.",
-        "Wait… did anyone bring the printed outline for the professor?"]
+      "Joke about just winging the whole thing",
+      "Ask Sanja if she brought snacks",
+      "Vent about staying up late fixing the dialog code"
     ],
   
     "response_dialogue": [
      
       [
         [
-          "Sanja",
-          "Honestly? I’m praying to the Google Slides gods during the ride."
-        ],
-        [
-          "Eva", 
-          "Bold of you to assume Srekja Wi-Fi will let us upload anything."
+          "Eva",
+          "Honestly? If we wing it with enough confidence, they'll think it's a creative choice."
         ],
         [
           "Sanja", 
-          "Okay now I’m actually scared."
+          "Spoken like someone who’s done that before."
+        ],
+        [
+          "Eva", 
+          "Maybe... a few times."
         ]
       ],
       [
         [
+          "Eva",
+          "Please tell me you brought snacks."
+        ],
+        [
           "Sanja",
-          "I finished it but I already hate everything I wrote."
+          "Girl… I literally brought dark chocolate and espresso shots."
         ],
         [
           "Eva",
-          "That’s the spirit of academia right there."
+          "That’s the most chaotic combo and I respect it."
         ],
         [
           "Sanja",
-          "Burnout with a sprinkle of impostor syndrome."
+          "You’re welcome in advance."
         ]
       ],
       [
         [
+          "Eva",
+          "I stayed up until 3am just fixing the dialog code."
+        ],
+        [
           "Sanja",
-          "I love how chaotic we are. It kinda works."
+          "Wait, you were still coding last night?"
         ],
         [
           "Eva",
-          "It's the academic version of jazz — messy but full of feeling."
-        ],
-        [
-          "Sanja",
-          "Let’s hope the professor agrees."
-        ]
-      ],
-      [
-        [
-          "Sanja",
-          "We’re so doomed and it’s beautiful."
+          "Marta added something and crashed the whole thing so I was helping her."
         ],
         [
           "Eva",
-          "Like a tragic group project opera."
-        ],
-        [
-          "Sanja",
-          "Cue dramatic music as we walk into Srekja."
-        ]
-      ],
-      [
-        [
-          "Sanja",
-          "Wait… did anyone bring the printed outline for the professor?"
-        ],
-        [
-          "Eva",
-          "...Was that not *your* job?"
-        ],
-        [
-          "Sanja",
-          "OH NO—"
-        ],
-        [
-          "Eva",
-          "Kidding. Tina printed five. Queen of preparation."
+          "Eva", "At this point I’m just emotionally attached to debugging it."
         ]
       ]
     ]
