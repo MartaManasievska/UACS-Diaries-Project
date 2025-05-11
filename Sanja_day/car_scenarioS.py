@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 import json
+from srekja_scene import run_srekja_scene
 
 def run_car_scenario_S():
     pygame.init()
@@ -163,5 +164,5 @@ def run_car_scenario_S():
         pygame.display.update()
         clock.tick(60)
 
-    pygame.quit()
-    sys.exit()
+pygame.quit()
+run_srekja_scene()
