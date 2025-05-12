@@ -3,7 +3,6 @@ import sys
 import os
 from Sanja_day.car_scenarioS import run_car_scenario_S
 
-
 def bedroom_scenario_S():
     pygame.init()
 
@@ -27,31 +26,44 @@ def bedroom_scenario_S():
     font_dialogue = pygame.font.Font(font_path, 28)
 
     dialogue_lines = [
-        "How is it already morning? Ugh, that was definitely not 8 hours. Should I wake up on time, hit snooze for 10 more minutes, or accidentally oversleep by an hour?",
-        "Coffee sounds so good right now... but my skincare won't do itself. Should I start my day with skincare, drink coffee, or listen to music?",
-        "I need to make a decision quickly... Should I do a quick workout, shower, or plan my outfit for the day?"
+        "How is it already morning? Ugh, that was definitely not 8 hours.",
+        "Coffee sounds so good right now... but my skincare won't do itself.",
+        "scene_end_marker"
     ]
 
     choices_sets = [
-        ["Wake up on time", "Hit Snooze", "Accidentally oversleep"],
-        ["Start day with skincare", "Drink Coffee", "Listen to Music"],
-        ["Quick Workout", "Shower", "Plan Outfit"] 
+        ["Wake up on time", "Hit snooze", "Accidentally oversleep"],
+        ["Start day with skincare", "Drink coffee", "Listen to music"],
+        ["Quick workout", "Shower", "Plan outfit"]
+    ]
+
+    responses = [
+        ["Up and ready! Starting the day on schedule feels great.",
+         "Just five more minutes... I’ll get up right after this.",
+         "I overslept! Gotta hurry up and make up for lost time."],
+        ["A fresh skincare routine to wake me up and feel refreshed.",
+         "Can’t start the day without my coffee!",
+         "Let’s set the vibe for the day — music on!"],
+        ["Quick workout done — I'm energized!",
+         "Shower time. Always wakes me up.",
+         "My outfit’s sorted, I’m ready to go!"]
     ]
 
     current_line = 0
+    current_choice_set = 0
     displayed_text = ""
     typing_index = 0
     typing_speed = 2
     frame_count = 0
     text_complete = False
     show_choices = False
-    current_choice_set = 0
     choice_rects = []
+    waiting_for_response = False
+    next_response_text = ""
     fade_out = False
     fade_alpha = 0
     fade_surface = pygame.Surface((WIDTH, HEIGHT))
     fade_surface.fill((0, 0, 0))
-    waiting_for_fade = False
 
     def draw_dialogue_box():
         box_rect = pygame.Rect(50, HEIGHT - 150, WIDTH - 100, 100)
@@ -93,7 +105,10 @@ def bedroom_scenario_S():
 
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-            (label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))(rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2)
+
+    stage = 0  # controls overall flow: 0=dialogue, 1=choice, 2=dialogue, etc.
+    waiting_for_response = False
+    next_response_text = ""
 
     running = True
     while running:
@@ -115,57 +130,39 @@ def bedroom_scenario_S():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN or (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE):
                 if show_choices:
                     for idx, rect in enumerate(choice_rects):
-                        if rect.collidepoint(event.pos):
+                        if rect.collidepoint(pygame.mouse.get_pos()):
+                            next_response_text = responses[current_choice_set][idx]
                             show_choices = False
                             typing_index = 0
                             frame_count = 0
                             displayed_text = ""
                             text_complete = False
-
-                            if current_choice_set == 0:
-                                current_choice_set = 1
-                                if idx == 0:
-                                    choice_text = "Up and ready! Starting the day on schedule feels great."
-                                elif idx == 1:
-                                    choice_text = "TJust five more minutes... I’ll get up right after this."
-                                elif idx == 2:
-                                    choice_text = "I overslept! Gotta hurry up and make up for lost time."
-                                dialogue_lines.insert(3, choice_text)
-                                current_line = 3
-
-                            elif current_choice_set == 1:
-                                current_choice_set = 2
-
-                            elif current_choice_set == 2:
-                                if idx == 0:
-                                    choice_text = "A fresh skincare routine to wake me up and feel refreshed."
-                                elif idx == 1:
-                                    choice_text = "Can’t start the day without my coffee!"
-                                elif idx == 2:
-                                    choice_text = "Let’s set the vibe for the day — music on!"
-                                dialogue_lines.insert(current_line, choice_text)
-                                current_line = len(dialogue_lines) - 1
-                                waiting_for_fade = True
+                            waiting_for_response = True
+                            break
 
                 elif text_complete:
-                    if waiting_for_fade:
-                        fade_out = True
+                    if waiting_for_response:
+                        dialogue_lines.insert(current_line + 1, next_response_text)
+                        waiting_for_response = False
+                        next_response_text = ""
                     else:
                         current_line += 1
                         if current_line < len(dialogue_lines):
-                            typing_index = 0
-                            frame_count = 0
-                            displayed_text = ""
-                            text_complete = False
-                            if current_line == 3 and current_choice_set == 0:
-                                show_choices = True
-                            if current_line == 6 and current_choice_set == 1:
-                                show_choices = True
-                        else:
-                            show_choices = True
+                            if dialogue_lines[current_line] == "scene_end_marker":
+                                fade_out = True
+                            else:
+                                typing_index = 0
+                                frame_count = 0
+                                displayed_text = ""
+                                text_complete = False
+
+                                # ✅ Show choices after lines 0, 1, 2 = at current_line 1, 3, 5
+                                if current_choice_set < len(choices_sets) and current_line in [1, 3, 5]:
+                                    show_choices = True
+                                    current_choice_set += 1
 
         if not text_complete and current_line < len(dialogue_lines):
             frame_count += 1
@@ -178,5 +175,7 @@ def bedroom_scenario_S():
         pygame.display.update()
         clock.tick(60)
 
-    # Call car ride scene
+   
+
+    pygame.quit()
     run_car_scenario_S()

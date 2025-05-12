@@ -147,6 +147,11 @@ def run_character_selection():
         from Sanja_day.bedroom_scenario_S import bedroom_scenario_S
         bedroom_scenario_S()
 
+    elif selected_character == "Marta":
+        print("Launching Marta bedroom...")
+        from Marta_day.bedroom_scenario_M import bedroom_scenario_M
+        bedroom_scenario_M()
+
 
     # ✅ Only quit AFTER the bedroom scene finishes
     pygame.quit()

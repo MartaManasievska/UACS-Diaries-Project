@@ -4,12 +4,17 @@ import os
 import json
 from presentation_screen import run_presentation_scene
 
-# Load the selected character
-with open("player_character.json", "r") as f:
-    player_data = json.load(f)
-player_character = player_data["player"]
-
 def run_srekja_scene():
+    try:
+        with open("player_character.json", "r") as f:
+            player_data = json.load(f)
+        player_character = player_data["player"]
+        print(f"✅ Player character for Srekja: {player_character}")
+    except Exception as e:
+        print("❌ Failed to load player_character.json:", e)
+        return
+
+
     pygame.init()
 
     width, height = 1000, 700
@@ -34,7 +39,7 @@ def run_srekja_scene():
     font_dialogue = pygame.font.Font(font_path, 26)
     font_name = pygame.font.Font(font_path, 26)
 
-    with open('srekja_scenario.json', 'r', encoding='utf-8') as file:
+    with open('srekja_scene.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     dialogue_lines = data["dialogue_lines"]
@@ -182,3 +187,4 @@ def run_srekja_scene():
 
     pygame.quit()
     run_presentation_scene()
+    

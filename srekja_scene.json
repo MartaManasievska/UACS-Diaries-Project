@@ -103,7 +103,25 @@
     ["Eva", "Define tested. Like, spiritually?"],
     ["Marta", "Oh god. We’re gonna crash live, aren’t we?"],
     ["Anja", "You fixed worse five minutes before a demo. We’re fine."]
+
   ]
-]
+],
+  "Sanja": [
+    [
+      ["Sanja", "I keep thinking I’ll forget the entire script up there."],
+      ["Eva", "You’ve rehearsed like 6 times, you’ll be fine."],
+      ["Sanja", "Yeah but what if I black out and just improvise a weather report?"]
+    ],
+    [
+      ["Sanja", "Are we seriously ready or just pretending to be?"],
+      ["Tina", "If you say it with confidence, it becomes true."],
+      ["Sanja", "Bold strategy. Let’s hope it works."]
+    ],
+    [
+      ["Sanja", "Tina, breathe. It’s not *that* serious."],
+      ["Tina", "I’m not panicking, you’re panicking."],
+      ["Sanja", "Okay panic twins, let’s just get this over with."]
+    ]
+  ]
   }
 }

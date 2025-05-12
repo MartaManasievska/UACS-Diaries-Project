@@ -180,5 +180,5 @@ def run_presentation_scene():
         pygame.display.update()
         clock.tick(60)
 
-pygame.quit()
-sys.exit()
+    pygame.quit()
+    sys.exit()
