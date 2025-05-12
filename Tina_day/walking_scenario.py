@@ -74,8 +74,8 @@ def run_walking_scenario():
         pygame.display.update()
         clock.tick(60)
         
-        pygame.quit()
-        run_srekja_scene()
+    pygame.quit()
+    run_srekja_scene()
 
 
 

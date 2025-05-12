@@ -1,7 +1,7 @@
 import pygame
 import sys
 import os
-from Anja_day.car_scenarioA import run_car_scenario_A  # Make sure this exists
+# from Anja_day.car_scenarioA import run_car_scenario_A  # Make sure this exists
 
 def bedroom_scenario_A():
     pygame.init()
@@ -181,5 +181,5 @@ def bedroom_scenario_A():
         clock.tick(60)
 
     # Call car ride scene
-    run_car_scenario_A()
+    # run_car_scenario_A()
     
