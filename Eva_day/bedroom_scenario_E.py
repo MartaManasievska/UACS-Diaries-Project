@@ -15,7 +15,7 @@ def bedroom_scenario_E():
 
     eva_image = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'character_bedroom_E.png')).convert_alpha()
     eva_image = pygame.transform.smoothscale(eva_image, (400, 600))
-    eva_position = (WIDTH // 2 - 20, HEIGHT - 600)
+    eva_position = (WIDTH // 2 + 120, HEIGHT - 600)
 
     icon_img = pygame.image.load(os.path.join('images', 'Eva_circle_border.png')).convert_alpha()
     icon_img = pygame.transform.smoothscale(icon_img, (80, 80))
