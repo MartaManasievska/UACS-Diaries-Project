@@ -168,6 +168,6 @@ def run_car_scenario_M():
         pygame.display.update()
         clock.tick(60)
 
-pygame.quit()
-run_srekja_scene() 
+        pygame.quit()
+        run_srekja_scene() 
 

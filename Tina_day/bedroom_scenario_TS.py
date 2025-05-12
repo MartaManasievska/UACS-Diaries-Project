@@ -1,12 +1,13 @@
 import pygame
 import sys
 import os
-from Tina_day.walking_scenario import run_walking_scenario
-
-
 
 def bedroom_scenario_TS():
-    # Initialize Pygame
+    print("✅ Entered Tina's bedroom")
+
+    from Tina_day.walking_scenario import run_walking_scenario
+
+
     pygame.init()
 
     # Screen setup
@@ -15,21 +16,42 @@ def bedroom_scenario_TS():
     pygame.display.set_caption("Tina's Bedroom")
     clock = pygame.time.Clock()
 
-    # Load background and character
-    background = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'bedroom_TS.png')).convert()
-    background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
+    # Asset loading with crash protection
+    try:
+        print("Loading background...")
+        background = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'bedroom_TS.png')).convert()
+        background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
+    except Exception as e:
+        print("❌ Failed to load background:", e)
+        return
 
-    tina_image = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'character_bedroom_TS.png')).convert_alpha()
-    tina_image = pygame.transform.smoothscale(tina_image, (400, 600))
-    tina_position = (WIDTH // 2 - 150, HEIGHT - 600)
+    try:
+        print("Loading Tina image...")
+        tina_image = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'character_bedroom_TS.png')).convert_alpha()
+        tina_image = pygame.transform.smoothscale(tina_image, (400, 600))
+    except Exception as e:
+        print("❌ Failed to load Tina image:", e)
+        return
 
-    icon_img = pygame.image.load(os.path.join('images', 'Tina_circle_border.png')).convert_alpha()
-    icon_img = pygame.transform.smoothscale(icon_img, (80, 80))
+    try:
+        print("Loading icon image...")
+        icon_img = pygame.image.load(os.path.join('images', 'Tina_circle_border.png')).convert_alpha()
+        icon_img = pygame.transform.smoothscale(icon_img, (80, 80))
+    except Exception as e:
+        print("❌ Failed to load icon image:", e)
+        return
+
     icon_position = (WIDTH - 100, HEIGHT - 120)
 
-    # Font
-    font_path = os.path.join('NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
-    font_dialogue = pygame.font.Font(font_path, 28)
+    try:
+        print("Loading font...")
+        font_path = os.path.join('NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
+        font_dialogue = pygame.font.Font(font_path, 28)
+    except Exception as e:
+        print("❌ Failed to load font:", e)
+        font_dialogue = pygame.font.SysFont(None, 28)  # fallback
+
+    tina_position = (WIDTH // 2 - 150, HEIGHT - 600)
 
     # Dialogue and Choices
     dialogue_lines = [
@@ -60,7 +82,7 @@ def bedroom_scenario_TS():
     fade_alpha = 0
     fade_surface = pygame.Surface((WIDTH, HEIGHT))
     fade_surface.fill((0, 0, 0))
-    waiting_for_fade = False  # NEW: wait after final monologue before fade
+    waiting_for_fade = False
 
     def draw_dialogue_box():
         box_rect = pygame.Rect(50, HEIGHT - 150, WIDTH - 100, 100)
@@ -68,7 +90,6 @@ def bedroom_scenario_TS():
         pygame.draw.rect(screen, (255, 255, 255), box_rect, 3, border_radius=10)
         screen.blit(icon_img, icon_position)
 
-        # Word wrap
         words = displayed_text.split(' ')
         lines, line = [], ""
         max_width = box_rect.width - 120
@@ -103,7 +124,6 @@ def bedroom_scenario_TS():
 
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-            (label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
 
     # Main loop
     running = True
@@ -121,13 +141,12 @@ def bedroom_scenario_TS():
             screen.blit(fade_surface, (0, 0))
             fade_alpha += 5
             if fade_alpha >= 255:
-                print("Transition complete. Moving to next scene.")
+                print("✅ Transition complete. Moving to walking scene.")
                 running = False
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if show_choices:
                     for idx, rect in enumerate(choice_rects):
@@ -141,42 +160,18 @@ def bedroom_scenario_TS():
 
                             if current_choice_set == 0:
                                 current_choice_set = 1
-                                food_option = idx
-                                if food_option == 0:
-                                    choice_text = "Now that was a great breakfast!"
-                                elif food_option == 1:
-                                    choice_text = "That made me feel very refreshed."
-                                elif food_option == 2:
-                                    choice_text = "Well, that takes care of breakfast... or lack of it, haha."
-
-                                dialogue_lines.insert(3, choice_text)  
-                                current_line = 3  # Show it next
-                                typing_index = 0
-                                frame_count = 0
-                                displayed_text = ""
-                                text_complete = False 
-
+                                dialogue_lines.insert(3, ["That hit the spot!", "Feeling refreshed!", "Game time it is!"][idx])
+                                current_line = 3
                             elif current_choice_set == 1:
                                 current_choice_set = 2
-                            
-
                             elif current_choice_set == 2:
-                                # Final outfit choice
-                                selected_outfit = idx
-                                if selected_outfit == 0:
-                                    choice_text = "This will save me so much time."
-                                elif selected_outfit == 1:
-                                    choice_text = "I'm going to wing it, work every time."
-                                elif selected_outfit == 2:
-                                    choice_text = "Nothing beats feeling cozy for the day."
-                                
-                                dialogue_lines.insert(current_line, choice_text)
+                                dialogue_lines.insert(len(dialogue_lines), [
+                                    "This will save me so much time.",
+                                    "I'm going to wing it.",
+                                    "Nothing beats cozy."
+                                ][idx])
                                 current_line = len(dialogue_lines) - 1
-                                typing_index = 0
-                                frame_count = 0
-                                displayed_text = ""
-                                text_complete = False
-                                waiting_for_fade = True  
+                                waiting_for_fade = True
 
                 elif text_complete:
                     if waiting_for_fade:
@@ -206,4 +201,5 @@ def bedroom_scenario_TS():
         pygame.display.update()
         clock.tick(60)
 
+    pygame.quit()
     run_walking_scenario()

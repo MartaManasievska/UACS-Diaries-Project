@@ -35,7 +35,7 @@ def bedroom_scenario_A():
     ]
 
     choices_sets = [
-        ["Eat Breakfast", "Drink Coffee, "Snooze for 15 minutes"],
+        ["Eat Breakfast", "Drink Coffee", "Snooze for 15 minutes"],
         ["Check phone notification", "Write in journal", "Listen to music"],
         ["Go by car", "Go by bus", "Carpool with colleagues"] 
     ]

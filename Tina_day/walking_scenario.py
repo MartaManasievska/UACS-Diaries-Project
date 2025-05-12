@@ -21,12 +21,6 @@ def run_walking_scenario():
     button_color = (120, 60, 20)  # Dark orange-brown
     button_rect = pygame.Rect(width - 180, height - 70, 160, 50)  # Position + Size
 
-
-
-    # # Optional: Load and play background music
-    # pygame.mixer.music.load(os.path.join('Tina_day', 'audio', 'lofi_walk.mp3'))
-    # pygame.mixer.music.play(-1)  # Loop indefinitely
-
     # Tina position
     tina_x = -250  # Start off-screen
     tina_y = height - 500
@@ -80,8 +74,8 @@ def run_walking_scenario():
         pygame.display.update()
         clock.tick(60)
         
-pygame.quit()
-run_srekja_scene()
+        pygame.quit()
+        run_srekja_scene()
 
 
 
