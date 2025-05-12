@@ -164,11 +164,11 @@ def bedroom_scenario_TS():
                                 # Final outfit choice
                                 selected_outfit = idx
                                 if selected_outfit == 0:
-                                    choice_text = "Tina carefully picks out a cute outfit, feeling confident."
+                                    choice_text = "This will save me so much time."
                                 elif selected_outfit == 1:
-                                    choice_text = "Tina shrugs and decides she'll pick something last minute."
+                                    choice_text = "I'm going to wing it, work every time."
                                 elif selected_outfit == 2:
-                                    choice_text = "Tina grabs the first comfy hoodie she can find and calls it a day."
+                                    choice_text = "Nothing beats feeling cozy for the day."
                                 
                                 dialogue_lines.insert(current_line, choice_text)
                                 current_line = len(dialogue_lines) - 1
@@ -176,7 +176,7 @@ def bedroom_scenario_TS():
                                 frame_count = 0
                                 displayed_text = ""
                                 text_complete = False
-                                waiting_for_fade = True  # Now after this line, next click triggers fade
+                                waiting_for_fade = True  
 
                 elif text_complete:
                     if waiting_for_fade:
