@@ -10,7 +10,7 @@ def bedroom_scenario_E():
     pygame.display.set_caption("Eva's Bedroom")
     clock = pygame.time.Clock()
 
-    background = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'bedroom_E.png')).convert()
+    background = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'bedroom_Eee.png')).convert()
     background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
 
     eva_image = pygame.image.load(os.path.join('Eva_day', 'images_eva', 'character_bedroom_E.png')).convert_alpha()
