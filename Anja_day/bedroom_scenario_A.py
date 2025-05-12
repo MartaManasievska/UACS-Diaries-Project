@@ -1,7 +1,7 @@
 import pygame
 import sys
 import os
-# from Anja_day.car_scenarioA import run_car_scenario_A  # Make sure this exists
+from Anja_day.car_scenarioA import run_car_scenario_A
 
 def bedroom_scenario_A():
     pygame.init()
@@ -26,18 +26,16 @@ def bedroom_scenario_A():
     font_dialogue = pygame.font.Font(font_path, 28)
 
     dialogue_lines = [
-        "It’s way too early for real decisions. I feel like I barely slept. Should I eatbreakfast now, drink coffee, or snooze for 15 more minutes?",
-        "Let me see... my phone’s buzzing already. But maybe I should be productive and start the day positively. Should I check my phone notifications, write in my journal, or listen to music while getting ready?",
-        "Traffic is going to be a nightmare, but public transport sucks too. Should I go to university by car, by bus, or carpool with colleagues?",
-
-
-
+        "It’s way too early for real decisions. I feel like I barely slept.",
+        "Let me see... my phone’s buzzing already. But maybe I should be productive and start the day positively.",
+        "I'm so nervous for the presentation. Idk if I should distract myself or go over it again.",
+        "scene_end_marker"
     ]
 
     choices_sets = [
         ["Eat Breakfast", "Drink Coffee", "Snooze for 15 minutes"],
         ["Check phone notification", "Write in journal", "Listen to music"],
-        ["Go by car", "Go by bus", "Carpool with colleagues"] 
+        ["Read your part again", "Distract with scrolling", "Drink coffee & no phone"]
     ]
 
     current_line = 0
@@ -53,7 +51,6 @@ def bedroom_scenario_A():
     fade_alpha = 0
     fade_surface = pygame.Surface((WIDTH, HEIGHT))
     fade_surface.fill((0, 0, 0))
-    waiting_for_fade = False
 
     def draw_dialogue_box():
         box_rect = pygame.Rect(50, HEIGHT - 150, WIDTH - 100, 100)
@@ -95,8 +92,7 @@ def bedroom_scenario_A():
 
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-            (label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-    
+
     running = True
     while running:
         screen.blit(background, (0, 0))
@@ -117,57 +113,32 @@ def bedroom_scenario_A():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN or (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE):
                 if show_choices:
                     for idx, rect in enumerate(choice_rects):
-                        if rect.collidepoint(event.pos):
+                        if rect.collidepoint(pygame.mouse.get_pos()):
                             show_choices = False
                             typing_index = 0
                             frame_count = 0
                             displayed_text = ""
                             text_complete = False
-
-                            if current_choice_set == 0:
-                                current_choice_set = 1
-                                if idx == 0:
-                                    choice_text = "Best breakfast ever!"
-                                elif idx == 1:
-                                    choice_text = "That will keep me awake for the day."
-                                else:
-                                    choice_text = "Well, I have more time I should sleep."
-                                dialogue_lines.insert(3, choice_text)
-                                current_line = 3
-
-                            elif current_choice_set == 1:
-                                current_choice_set = 2
-
-                            elif current_choice_set == 2:
-                                if idx == 0:
-                                    choice_text = "Let's see what is going on."
-                                elif idx == 1:
-                                    choice_text = "Time to reflect and jot down my thoughts."
-                                else:
-                                    choice_text = "Music always lifts my mood and helps me focus."
-                                dialogue_lines.insert(current_line, choice_text)
-                                current_line = len(dialogue_lines) - 1
-                                waiting_for_fade = True
+                            current_choice_set += 1
+                            break
 
                 elif text_complete:
-                    if waiting_for_fade:
-                        fade_out = True
-                    else:
-                        current_line += 1
-                        if current_line < len(dialogue_lines):
+                    current_line += 1
+                    if current_line < len(dialogue_lines):
+                        if dialogue_lines[current_line] == "scene_end_marker":
+                            fade_out = True
+                        else:
                             typing_index = 0
                             frame_count = 0
                             displayed_text = ""
                             text_complete = False
-                            if current_line == 3 and current_choice_set == 0:
+                            if current_choice_set < len(choices_sets):
                                 show_choices = True
-                            if current_line == 6 and current_choice_set == 1:
-                                show_choices = True
-                        else:
-                            show_choices = True
+                    else:
+                        fade_out = True
 
         if not text_complete and current_line < len(dialogue_lines):
             frame_count += 1
@@ -180,6 +151,5 @@ def bedroom_scenario_A():
         pygame.display.update()
         clock.tick(60)
 
-    # Call car ride scene
-    # run_car_scenario_A()
-    
+    pygame.quit()
+    run_car_scenario_A()
