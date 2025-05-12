@@ -3,7 +3,6 @@ import sys
 import os
 from Marta_day.car_scenarioM import run_car_scenario_M
 
-
 def bedroom_scenario_M():
     pygame.init()
 
@@ -94,8 +93,7 @@ def bedroom_scenario_M():
 
             label = font_dialogue.render(choice, True, (0, 0, 0))
             screen.blit(label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-            (label, (rect.centerx - label.get_width() // 2, rect.centery - label.get_height() // 2))
-    
+
     running = True
     while running:
         screen.blit(background, (0, 0))
@@ -111,7 +109,7 @@ def bedroom_scenario_M():
             screen.blit(fade_surface, (0, 0))
             fade_alpha += 5
             if fade_alpha >= 255:
-                print("Transition complete. Moving to next scene.")
+                print("Transition complete. Moving to car scene.")
                 running = False
 
         for event in pygame.event.get():
@@ -183,5 +181,5 @@ def bedroom_scenario_M():
         pygame.display.update()
         clock.tick(60)
 
-    # After fade, continue to car scene
+    pygame.quit()
     run_car_scenario_M()

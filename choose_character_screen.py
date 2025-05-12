@@ -134,18 +134,26 @@ def run_character_selection():
 
     # ✅ Do NOT quit pygame here – we’re transitioning to a new scene
 
-    if selected_character == "Tina":
-        print("Launching Tina bedroom...")
-        from Tina_day.bedroom_scenario_TS import bedroom_scenario_TS
-        bedroom_scenario_TS()
-    elif selected_character == "Anja":
-        print("Launching Anja bedroom...")
-        from Anja_day.bedroom_scenario_A import bedroom_scenario_A
-        bedroom_scenario_A()
-    elif selected_character == "Sanja":
-        print("Launching Sanja bedroom...")
-        from Sanja_day.bedroom_scenario_S import bedroom_scenario_S
-        bedroom_scenario_S()
+        if selected_character == "Tina":
+            print("Launching Tina bedroom...")
+            from Tina_day.bedroom_scenario_TS import bedroom_scenario_TS
+            bedroom_scenario_TS()
+        elif selected_character == "Anja":
+            print("Launching Anja bedroom...")
+            from Anja_day.bedroom_scenario_A import bedroom_scenario_A
+            bedroom_scenario_A()
+        elif selected_character == "Sanja":
+            print("Launching Sanja bedroom...")
+            from Sanja_day.bedroom_scenario_S import bedroom_scenario_S
+            bedroom_scenario_S()
+        elif selected_character == "Marta":
+            print("Launching Marta bedroom...")
+            from Marta_day.bedroom_scenario_M import bedroom_scenario_M
+            bedroom_scenario_M()
+        elif selected_character == "Eva":
+            print("Launching Eva bedroom...")
+            from Eva_day.bedroom_scenario_E import bedroom_scenario_E
+            bedroom_scenario_E()
 
 
     # ✅ Only quit AFTER the bedroom scene finishes
