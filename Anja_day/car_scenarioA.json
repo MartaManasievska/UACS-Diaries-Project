@@ -27,43 +27,41 @@
   ],
   "choice_sets": [
     [
-      "Ask Marta if she’s nervous too",
-      "Admit you barely slept",
-      "Say you’re thinking of bailing"
+      "I just want this to be over so we can celebrate.",
+      "Only if the coffee is spiked with liquid courage",
+      "What if it’s a total disaster though?"
     ],
     [
-       "Ask if she thinks the professor likes them",
-       "Wonder out loud if anyone else is as nervous",
-       "Half-joke about faking a sudden illness"
+       "I’m scared I’ll mess up in front of everyone.",
+       "Just mentally organizing my chaos.",
+       "Wait, is the last homework uploaded?!?"
     ]
   ],
   "response_dialogue": [
    [
-      ["Marta", "Me? Nervous? Never. Okay maybe a little."],
-      ["Anja", "Okay good, I’m not totally alone then."]
+      ["Marta", "Exactly! We’re gonna ace it, then it’s cocktails and gossip time. I already picked out the perfect bar."],
+      ["Anja", "Ahh I can't wait!"]
     ],
     [
-      ["Marta", "You barely slept?! Girl. Coffee and adrenaline will save you now."],
-      ["Anja", "It's been a long night of overthinking."]
+      ["Marta", "If you sneak Baileys into your latte, I’m telling—but like, in a supportive way."],
+      ["Anja", "Honestly though, caffeine is all the courage we need today."]
     ],
     [
-      ["Marta", "Oh no you don’t. If I’m going down, you’re going with me."],
-      ["Anja", "You make that sound like a friendship pact from a heist movie."]
+      ["Marta", "Then we handle it, like we always do. You’re not doing this alone, We are all with you the whole time."],
+      ["Anja", "I know I know..."]
     ],
     [
-      ["Marta", "Honestly? I think he likes us more than most of the class."],
-      ["Anja", "So you're saying we’re teacher’s pets?"],
-      ["Marta", "I’m saying we’re charming. Totally different thing."]
+      ["Marta", "You’re allowed to be scared, but don’t forget—you’re also prepared."],
+      ["Marta", "You’ve worked hard for this, and that’s what people will see."]
     ],
     [
-      ["Marta", "Most that I asked are as panicked as you maybe even more, so yes."],
-      ["Anja", "Okay, that makes me feel a bit better."],
-      ["Marta", "We’re all a bunch of stressed chickens."]
+      ["Marta", "Color-coded chaos or just vibes? Either way, as long as you leave room for caffeine and brilliance, we’re fine."],
+      ["Anja", "Caffeine’s already booked the front row. Chaos can stand in the back."]
     ],
     [
-      ["Marta", "Fake a cough and I swear I’ll drag you in by your backpack."],
-      ["Anja", "So supportive."],
-      ["Marta", "That’s what friends are for 😇"]
+      ["Marta", "Yes, I checked, like, three times. Breathe."],
+      ["Anja", "If it’s not, we ride or die together. I’m not going down alone for this group grade."],
+      ["Marta", "Girl, if it’s not, we’re uploading it from the parking lot. Wi-Fi and panic mode: activated."]
     ]
   ]
 }

@@ -12,7 +12,7 @@ def run_car_scenario_A():
     pygame.display.set_caption("Car Ride - Marta & Anja")
     clock = pygame.time.Clock()
 
-    background = pygame.image.load(os.path.join('Marta_day', 'images_marta', 'car_scenario.png')).convert()
+    background = pygame.image.load(os.path.join('Anja_day', 'images_anja', 'car_scenario.png')).convert()
     background = pygame.transform.smoothscale(background, (width, height))
 
     marta_icon = pygame.image.load(os.path.join('images', 'Marta_circle_border.png')).convert_alpha()
@@ -24,7 +24,7 @@ def run_car_scenario_A():
     font_dialogue = pygame.font.Font(font_path, 26)
     font_name = pygame.font.Font(font_path, 26)
 
-    with open(os.path.join('Marta_day','car_scenarioM.json'), 'r', encoding='utf-8') as file:
+    with open(os.path.join('Anja_day','car_scenarioA.json'), 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     dialogue_lines = data["dialogue_lines"]
