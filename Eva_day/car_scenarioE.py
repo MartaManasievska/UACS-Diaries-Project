@@ -25,7 +25,7 @@ def run_car_scenario_E():
     font_name = pygame.font.Font(font_path, 26)
     font_narration = pygame.font.SysFont("arial", 22, bold=False, italic=True)
 
-    with open(os.path.join('Sanja_day', 'dialog_S&E.json'), 'r', encoding='utf-8') as file:
+    with open(os.path.join('Eva_day', 'dialog_S&E.json'), 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     dialogue_lines = data["dialogue_lines"]

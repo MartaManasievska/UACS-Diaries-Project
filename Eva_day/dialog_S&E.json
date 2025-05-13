@@ -56,10 +56,10 @@
     ],
   
     "choice_sets": [
-
+      [
       "Joke about just winging the whole thing",
       "Ask Sanja if she brought snacks",
-      "Vent about staying up late fixing the dialog code"
+      "Vent about staying up late fixing a bug"]
     ],
   
     "response_dialogue": [
