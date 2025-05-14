@@ -1,1 +1,78 @@
-    
+    # 🎓 UACS Diaries
+
+**UACS Diaries** is a choice-based visual novel game built in **Pygame**, developed as a university project. Players follow the stories of 5 different students from the University American College Skopje (UACS) as they prepare for their big presentation day.
+
+## 🚀 Features
+
+- 🎮 **Character selection screen** with animated transitions
+- 🛏️ **Custom story scenes** for each character (bedroom, walk/drive, presentation)
+- 🗨️ **Dialogue system** with character icons, name labels, and narrative lines
+- 🧠 **Player choices** that shape the flow of conversation
+- 💾 Dialogue stored in external `.json` files for easy editing and expansion
+
+---
+
+## 🧑‍💻 Technologies Used
+
+- **Python**
+- **Pygame**
+- **JSON** for dialogue and player data
+- **Custom assets** (images, fonts, character art)
+
+---
+
+## 📁 Project Structure
+
+UACS_Diaries/
+├── images/ # Shared icons and UI elements
+├── Tina_day/ # Tina’s scenes and assets
+│ ├── bedroom_scenario_TS.py
+│ └── images_tina/
+├── Marta_day/
+│ └── ...
+├── selection_screen.py # Main character selection logic
+├── player_character.json # Saves selected character
+├── dialogue_Tina.json # Tina’s dialogue
+└── ...
+
+
+---
+
+## 🧠 How It Works
+
+1. The game launches with a **character selection screen**.
+2. The selected character is saved in `player_character.json`.
+3. The game loads the corresponding story scenes for that character.
+4. **Dialogue and choices are loaded from JSON** files to keep code modular.
+5. Transitions (like fade-outs) create a smooth experience between scenes.
+
+---
+
+## 🗂️ JSON-Based Dialogue System
+
+Dialogue and choices are stored in a simple JSON format:
+```json
+{
+  "dialogue_lines": [
+    ["Tina", "I didn’t sleep at all last night."],
+    ["narration", "The sun rises over Skopje, calm but electric."]
+  ],
+  "choice_sets": {
+    "Tina": [
+      "Admit you're nervous",
+      "Make a sarcastic joke"
+    ]
+  }
+}
+
+
+This makes it easy to:
+
+    -Add or remove lines
+
+    -Localize text
+
+    -Let non-coders contribute dialogue
+
+    -Expand character stories
+

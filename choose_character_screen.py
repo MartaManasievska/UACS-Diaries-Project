@@ -132,7 +132,6 @@ def run_character_selection():
 
         clock.tick(60)
 
-    # ✅ Do NOT quit pygame here – we’re transitioning to a new scene
 
     if selected_character == "Tina":
         print("Launching Tina bedroom...")
@@ -158,6 +157,5 @@ def run_character_selection():
         bedroom_scenario_E()
 
 
-    # ✅ Only quit AFTER the bedroom scene finishes
     pygame.quit()
     sys.exit()

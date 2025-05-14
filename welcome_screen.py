@@ -25,7 +25,7 @@ background = pygame.transform.scale(background, (width, height))  # Make sure it
 # Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-PASTEL_PINK = (255, 182, 193)  # Soft pink color
+PASTEL_PINK = (255, 182, 193) 
 
 # Fonts
 font = pygame.font.Font("Tagesschrift-Regular.ttf", 40)
