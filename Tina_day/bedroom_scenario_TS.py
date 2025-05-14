@@ -12,10 +12,10 @@ def bedroom_scenario_TS():
     clock = pygame.time.Clock()
 
     # Load assets
-    background = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'bedroom_M.png')).convert()
+    background = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'bedroom_TS.png')).convert()
     background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
 
-    tina_image = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'character_bedroom_M.png')).convert_alpha()
+    tina_image = pygame.image.load(os.path.join('Tina_day', 'images_tina', 'character_bedroom_TS.png')).convert_alpha()
     tina_image = pygame.transform.smoothscale(tina_image, (400, 600))
     tina_position = (WIDTH // 2 + 30, HEIGHT - 600)
 
