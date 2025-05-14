@@ -119,7 +119,7 @@ original = screen.copy()
 
 for angle in range(0, 361, 10):
     rotated = pygame.transform.rotozoom(original, angle, 1)
-    rect = rotated.get_rect(center=(width // 2, height // 2))
+    rect = rotated.get_rect(center=(width // 2, height // 2)) 
     screen.fill((0, 0, 0))
     screen.blit(rotated, rect.topleft)
     pygame.display.update()
