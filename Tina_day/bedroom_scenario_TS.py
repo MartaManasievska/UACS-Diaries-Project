@@ -165,4 +165,4 @@ def bedroom_scenario_TS():
 
 
     pygame.quit()
-    run_car_scenario_M()
+    run_walking_scenario()
